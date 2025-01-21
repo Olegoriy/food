@@ -128,4 +128,10 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }
     });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.code == "Escape") {
+            closeModal();
+        }
+    });
 });
