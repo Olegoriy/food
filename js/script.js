@@ -164,7 +164,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
 
         changeToUAH() {
-            this.price = this.price * this.transfer;
+            this.price = +this.price * this.transfer;
         }
 
         render() {
