@@ -198,13 +198,25 @@ const getResource = async (url) => {
     return await res.json();
 };
 
-getResource('http://localhost:3000/menu')
+// 1 method
+// getResource('http://localhost:3000/menu')
+//     .then(data => {
+//         data.forEach(({img, altimg, title, descr, price}) => {
+//             new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
+//         });
+//     });
+
+
+// 2 method
+axios.get('http://localhost:3000/menu')
     .then(data => {
-        data.forEach(({img, altimg, title, descr, price}) => {
+        data.data.forEach(({img, altimg, title, descr, price}) => {
             new MenuCard(img, altimg, title, descr, price, '.menu .container').render();
         });
     });
 
+
+// 3 method
 // getResource('http://localhost:3000/menu')
 //     .then(data => createCard(data));
 
@@ -318,4 +330,4 @@ function showThanksModal(message) {
 fetch('http://localhost:3000/menu')
     .then(data => data.json());
     // .then(res => console.log(res));
-});
+ });
