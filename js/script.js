@@ -505,4 +505,27 @@ fetch('http://localhost:3000/menu')
     }
 
     calcTotal();
+
+    function getStaticInformation(parentSelector, activeClass) {
+        const elements = document.querySelectorAll(`${parentSelector} div`);
+
+        document.querySelector(parentSelector).addEventListener('click', (e) => {
+            if (e.target.getAttribute('data-ratio')) {
+                ratio = +e.target.getAttribute('data-ratio');
+            } else {
+                sex = e.target.getAttribute('id');
+            }
+
+            console.log(ratio, sex);
+
+            elements.forEach(element => {
+                element.classList.remove(activeClass);
+            });
+
+            e.target.classList.add(activeClass);
+        });
+    }
+
+    getStaticInformation('#gender', "calculating__choose-item_active");
+    getStaticInformation('.calculating__choose_big', "calculating__choose-item_active");
 });
