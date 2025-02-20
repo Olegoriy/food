@@ -1,9 +1,10 @@
 import { closeModal, openModal } from "./modal";
+import {postData} from "../services/services";
 
-function forms(modalTimerId) {
+function forms(formSelector, modalTimerId) {
     // Forms
 
-    const forms = document.querySelectorAll('form');
+    const forms = document.querySelectorAll(formSelector);
 
 
     const message = {
@@ -15,18 +16,6 @@ function forms(modalTimerId) {
     forms.forEach(item => {
         bindPostData(item);
     });
-
-    const postData = async (url, data) => {
-        const res = await fetch(url, {
-            method: "POST",
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: data
-        });
-
-        return await res.json();
-    };
 
 
     function bindPostData(form) {
