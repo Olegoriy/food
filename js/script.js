@@ -1,3 +1,5 @@
+require('es6-promise').polyfill();
+
 import tabs from './modules/tabs';
 import modal from './modules/modal';
 import timer from './modules/timer';
@@ -18,6 +20,7 @@ window.addEventListener('DOMContentLoaded', () => {
     calc();
     forms('form', modalTimerId);
     slider({
+        
         container: '.offer__slider',
         nextArrow: '.offer__slider-next',
         prevArrow: '.offer__slider-prev',
